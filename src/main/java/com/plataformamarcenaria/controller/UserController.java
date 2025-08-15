@@ -1,15 +1,15 @@
 package com.plataformamarcenaria.controller;
 
-import com.plataformamarcenaria.dto.user.UserCreateDTO;
 import com.plataformamarcenaria.dto.user.UserResponseDTO;
+import com.plataformamarcenaria.dto.user.UserCreateDTO;
 import com.plataformamarcenaria.dto.user.UserUpdateDTO;
-import com.plataformamarcenaria.entity.User;
 import com.plataformamarcenaria.service.UserService;
-import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import com.plataformamarcenaria.entity.User;
+import org.springframework.http.HttpStatus;
+import lombok.RequiredArgsConstructor;
+import jakarta.validation.Valid;
 
 import java.util.List;
 
