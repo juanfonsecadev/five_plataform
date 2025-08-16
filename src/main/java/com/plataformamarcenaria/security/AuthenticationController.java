@@ -31,23 +31,19 @@ public class AuthenticationController {
 
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody UserLoginDTO userLoginDTO) {
-        // Autentica o usuário usando o AuthenticationManager
         Authentication authentication = authenticationManager.authenticate(
             new UsernamePasswordAuthenticationToken(userLoginDTO.getEmail(), userLoginDTO.getPassword())
         );
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        // Gera o token JWT para o usuário autenticado
         String jwt = tokenProvider.generateToken(authentication);
 
-        // Retorna o token na resposta
         return ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
     }
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@Valid @RequestBody UserCreateDTO userCreateDTO) {
-        // Esta lógica de criação de usuário já está funcionando
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(userCreateDTO));
     }
 }
